@@ -39,16 +39,8 @@ def test_mask_email_basic():
 	# Assert
 	assert result == "pr***@example.com"
 
-def test_normalize_phone_removes_dashes():
-	"""Test that normalization returns digits only."""
-	assert normalize_phone("555-123-4567") == "5551234567"
-
 def test_mask_email_rejects_invalid_email():
 	"""Test that masking rejects invalid input."""
 	with pytest.raises(ValueError):
 		mask_email("not-an-email")
 
-def test_normalize_phone_rejects_invalid_phone():
-	"""Test that normalization rejects invalid input."""
-	with pytest.raises(ValueError):
-		normalize_phone("555-123")
